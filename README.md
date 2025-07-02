@@ -1,3 +1,16 @@
+# AI Mock Interview Platform
+
+An AI-powered platform to help you practice and ace your job interviews. Generate personalized mock interviews, record your answers, and receive instant, detailed feedback to improve your skills and boost your confidence.
+
+## Features
+- **AI-Generated Mock Interviews**: Get tailored interview questions based on your preferences.
+- **Answer Recording**: Practice by recording your answers (video is never saved).
+- **Personalized Feedback**: Receive AI-driven feedback, ratings, and improvement tips for each answer.
+- **Progress Tracking**: View your overall ratings and feedback history.
+- **Modern UI**: Built with React, TypeScript, and Vite for a fast, responsive experience.
+
+---
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
