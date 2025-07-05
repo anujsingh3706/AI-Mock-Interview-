@@ -60,8 +60,37 @@
   * {
     @apply border-border;
   }
+  /* Premium 3D Glassmorphism Base Styles */
   body {
-    @apply bg-background text-foreground;
+    @apply bg-premium-gradient min-h-screen font-sans text-gray-900 dark:bg-premiumDark dark:text-white transition-colors duration-500;
+    background-attachment: fixed;
+  }
+
+  .premium-glass {
+    @apply bg-glass backdrop-blur-glass shadow-glass rounded-2xl border border-white/20;
+  }
+
+  .premium-3d {
+    @apply shadow-3d;
+  }
+
+  .premium-neumorph {
+    @apply shadow-neumorph;
+  }
+
+  /* Button base for premium look */
+  .premium-btn {
+    @apply px-6 py-2 rounded-xl font-semibold text-white bg-premiumBlue shadow-3d transition-all duration-300 hover:bg-premiumAqua hover:scale-105 active:bg-premiumOrange focus:outline-none focus:ring-2 focus:ring-premiumAqua dark:bg-premiumDark dark:hover:bg-premiumAqua dark:active:bg-premiumOrange;
+  }
+
+  /* For orange variant */
+  .premium-btn-orange {
+    @apply bg-premiumOrange hover:bg-premiumBlue;
+  }
+
+  /* For aqua variant */
+  .premium-btn-aqua {
+    @apply bg-premiumAqua hover:bg-premiumOrange;
   }
 
   .text-outline {
@@ -71,4 +100,29 @@
       /* Top-right */ -1px 1px 0 rgba(0, 0, 0, 0.6),
       /* Bottom-left */ 1px 1px 0 rgba(0, 0, 0, 0.6); /* Bottom-right */
   }
+}
+
+.nav-gradient-btn {
+  @apply bg-[#e2d6fa] font-extrabold px-4 py-2 rounded-lg transition-all duration-200 shadow-3d;
+  color: #e573b7;
+}
+.nav-gradient-btn:hover, .nav-gradient-btn:focus {
+  filter: brightness(1.08) drop-shadow(0 2px 8px #e2d6fa);
+  transform: scale(1.07);
+}
+.nav-gradient-btn:active {
+  filter: brightness(0.95) drop-shadow(0 1px 4px #e2d6fa);
+  transform: scale(0.98);
+}
+
+.nav-btn-orange {
+  @apply bg-premiumOrange text-white font-extrabold px-4 py-2 rounded-lg transition-all duration-200 shadow-3d;
+}
+.nav-btn-orange:hover, .nav-btn-orange:focus {
+  filter: brightness(1.08) drop-shadow(0 2px 8px #ff9800);
+  transform: scale(1.07);
+}
+.nav-btn-orange:active {
+  filter: brightness(0.95) drop-shadow(0 1px 4px #ff9800);
+  transform: scale(0.98);
 }

@@ -54,8 +54,8 @@ export const Dashboard = () => {
       <div className="flex w-full items-center justify-between">
         {/* headings */}
         <Headings
-          title="Dashboard"
-          description="Create and start you AI Mock interview"
+          title={<span className="text-white">Dashboard</span>}
+          description={<span className="text-white">Create and start your AI Mock interview</span>}
         />
         <Link to={"/generate/create"}>
           <Button size={"sm"}>
@@ -84,11 +84,11 @@ export const Dashboard = () => {
               alt=""
             />
 
-            <h2 className="text-lg font-semibold text-muted-foreground">
+            <h2 className="text-lg font-semibold text-white">
               No Data Found
             </h2>
 
-            <p className="w-full md:w-96 text-center text-sm text-neutral-400 mt-4">
+            <p className="w-full md:w-96 text-center text-sm text-white mt-4">
               There is no available data to show. Please add some new mock
               interviews
             </p>

@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
 interface HeadingsProps {
-  title: string;
-  description?: string;
+  title: ReactNode;
+  description?: ReactNode;
   isSubHeading?: boolean;
 }
 

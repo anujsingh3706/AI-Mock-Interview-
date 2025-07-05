@@ -49,8 +49,25 @@ export default {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
-  		},
+  			},
+        premiumBlue: '#6EC1E4', // light blue
+        premiumAqua: '#1DE9B6', // aqua
+        premiumOrange: '#FF9800', // orange
+        premiumDark: '#181F2A', // dark bg for dark mode
+        premiumGlass: 'rgba(255,255,255,0.15)',
+      },
+      boxShadow: {
+        '3d': '0 4px 24px 0 rgba(30, 144, 255, 0.15), 0 1.5px 4px 0 rgba(0,0,0,0.10)',
+        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+        'neumorph': '8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff',
+      },
+      backgroundImage: {
+        'premium-gradient': 'linear-gradient(135deg, #6EC1E4 0%, #1DE9B6 50%, #FF9800 100%)',
+        'glass': 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)',
+      },
+      backdropBlur: {
+        glass: '8px',
+      },
   		keyframes: {
   			'accordion-down': {
   				from: {

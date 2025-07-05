@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"; // Import Lucide icons
+import { Twitter, Instagram, Linkedin } from "lucide-react"; // Import Lucide icons
 import { Link } from "react-router-dom";
 import { Container } from "@/components/container";
 import { MainRoutes } from "@/lib/helpers";
@@ -44,7 +44,7 @@ const FooterLink: React.FC<FooterLinkProps> = ({ to, children }) => {
 
 export const Footer = () => {
   return (
-    <div className="w-full bg-black text-gray-300 hover:text-gray-100 py-8">
+    <div className="w-full bg-black text-gray-300 hover:text-gray-100 py-8 relative">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* First Column: Links */}
@@ -91,22 +91,17 @@ export const Footer = () => {
             <p className="mb-4">123 AI Street, Tech City, 12345</p>
             <div className="flex gap-4">
               <SocialLink
-                href="https://facebook.com"
-                icon={<Facebook size={24} />}
-                hoverColor="text-blue-500"
-              />
-              <SocialLink
-                href="https://twitter.com"
+                href="https://x.com/anuj0796"
                 icon={<Twitter size={24} />}
                 hoverColor="text-blue-400"
               />
               <SocialLink
-                href="https://instagram.com"
+                href="https://www.instagram.com/anujchauhan_27/"
                 icon={<Instagram size={24} />}
                 hoverColor="text-pink-500"
               />
               <SocialLink
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/anuj-singh-chauhan-120444253/"
                 icon={<Linkedin size={24} />}
                 hoverColor="text-blue-700"
               />
@@ -114,6 +109,9 @@ export const Footer = () => {
           </div>
         </div>
       </Container>
+      <div className="absolute right-8 bottom-2 text-white text-sm md:text-base">
+        © 2025 Anuj Singh Chauhan. All rights reserved.
+      </div>
     </div>
   );
 };

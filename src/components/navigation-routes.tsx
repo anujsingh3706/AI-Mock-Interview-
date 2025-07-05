@@ -22,8 +22,8 @@ export const NavigationRoutes = ({
           to={route.href}
           className={({ isActive }) =>
             cn(
-              "text-base text-neutral-600",
-              isActive && "text-neutral-900 font-semibold"
+              route.label === 'Take An Interview' ? 'nav-btn-orange' : 'nav-gradient-btn',
+              isActive ? 'scale-105 shadow-3d' : 'opacity-90 hover:scale-105 hover:shadow-3d'
             )
           }
         >
