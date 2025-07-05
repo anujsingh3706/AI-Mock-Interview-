@@ -1,11 +1,8 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { useState, useRef } from "react";
-import { Sun, Moon, PlayCircle, User, BarChart2, Video, Mic } from "react-feather";
+import { useState } from "react";
+import { Sun, Moon, PlayCircle, User, BarChart2, Video } from "react-feather";
 import { useNavigate } from "react-router-dom";
-
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`;
-
 
 const testimonials = [
   {
@@ -46,41 +43,6 @@ const features = [
 export default function Home() {
   const [dark, setDark] = useState(false);
   const navigate = useNavigate();
-  // Gemini chat state
-  const [chat, setChat] = useState<{role: 'user'|'gemini', content: string}[]>([]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const chatEndRef = useRef<HTMLDivElement>(null);
-
-  // Scroll to bottom on new message
-  React.useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [chat]);
-
-  async function handleChatSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!input.trim()) return;
-    setError("");
-    setChat((prev) => [...prev, { role: 'user', content: input }]);
-    setLoading(true);
-    try {
-      const res = await fetch(GEMINI_API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contents: [{ parts: [{ text: input }] }] }),
-      });
-      const data = await res.json();
-      const geminiMsg = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't understand that.";
-      setChat((prev) => [...prev, { role: 'gemini', content: geminiMsg }]);
-    } catch (err) {
-      setError("Failed to get response from Gemini. Please try again.");
-    } finally {
-      setLoading(false);
-      setInput("");
-    }
-  }
-
   React.useEffect(() => {
     if (dark) {
       document.documentElement.classList.add("dark");
@@ -122,7 +84,7 @@ export default function Home() {
         {testimonials.map((t, i) => (
           <div key={i} className="premium-glass p-6 flex flex-col items-center text-center shadow-3d hover:scale-105 transition-transform border border-orange-400/10">
             <img src={t.avatar} alt={t.name} className="w-16 h-16 rounded-full mb-4 border-4 border-orange-400 shadow-lg" />
-            <p className="text-white/90 dark:text-white/80 italic mb-2">“{t.quote}”</p>
+            <p className="text-white/90 dark:text-white/80 italic mb-2">"{t.quote}"</p>
             <span className="font-semibold text-orange-400">{t.name}</span>
           </div>
         ))}
@@ -155,41 +117,21 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Chatbot Demo Block */}
-      <section className="relative max-w-md mx-auto py-16 animate-fade-in-up z-10">
-        <div className="premium-glass p-8 flex flex-col items-center text-center shadow-3d border border-orange-400/10 rounded-xl w-full" style={{minWidth: 350}}>
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">Ask Interview Copilot <span role="img" aria-label="robot">🤖</span></h2>
-          {/* Chat history */}
-          <div className="w-full mb-4 max-h-64 overflow-y-auto bg-black/10 rounded-lg p-3 text-left space-y-3" style={{minHeight: 80}}>
-            {chat.length === 0 && <div className="text-gray-400 text-center">Start the conversation!</div>}
-            {chat.map((msg, i) => (
-              <div key={i} className={msg.role === 'user' ? 'text-right' : 'text-left'}>
-                <span className={msg.role === 'user' ? 'bg-purple-500/20 text-purple-200 px-3 py-2 rounded-lg inline-block' : 'bg-orange-400/20 text-orange-200 px-3 py-2 rounded-lg inline-block'}>
-                  {msg.content}
-                </span>
-              </div>
-            ))}
-            {loading && <div className="text-orange-400">Gemini is typing...</div>}
-            {error && <div className="text-red-400">{error}</div>}
-            <div ref={chatEndRef} />
-          </div>
-          <form className="w-full flex flex-col gap-4" onSubmit={handleChatSubmit}>
+      {/* Interactive Demo Block */}
+      <section className="relative max-w-2xl mx-auto py-16 animate-fade-in-up z-10">
+        <div className="premium-glass p-8 flex flex-col items-center text-center shadow-3d border border-orange-400/10">
+          <h2 className="text-2xl font-bold text-orange-400 mb-2">Try a Sample Question</h2>
+          <p className="text-white/80 dark:text-white/70 mb-4">Experience Interview Copilot's AI in action. Answer a sample question below!</p>
+          <div className="flex items-end gap-2 w-full">
             <textarea
-              placeholder="Type your question..."
-              className="w-full px-4 py-3 rounded-lg bg-white/10 border border-orange-400/20 text-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition shadow-3d resize-y min-h-[100px] max-h-60 text-base"
-              rows={5}
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              disabled={loading}
+              placeholder="Your answer..."
+              className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-orange-400/20 text-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition shadow-3d resize-y min-h-[80px] max-h-60"
+              rows={4}
             />
-            <button
-              type="submit"
-              className="w-full py-3 rounded-lg font-bold text-white text-lg mt-2 transition-all bg-gradient-to-r from-purple-500 to-pink-400 hover:from-pink-400 hover:to-purple-500 shadow-3d disabled:opacity-60"
-              disabled={loading || !input.trim()}
-            >
-              {loading ? 'Sending...' : 'Send'}
-            </button>
-          </form>
+            <Button variant="premium" size="icon" className="shadow-3d h-12 w-12 flex items-center justify-center">
+              <PlayCircle />
+            </Button>
+          </div>
         </div>
       </section>
       {/* Animations and 3D blob keyframes */}

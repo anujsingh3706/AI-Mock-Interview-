@@ -12,7 +12,7 @@ export const NavigationRoutes = ({
   return (
     <ul
       className={cn(
-        "flex items-center gap-6",
+        "flex items-center gap-8 text-gray-700 text-base font-normal",
         isMobile && "items-start flex-col gap-8"
       )}
     >
@@ -22,8 +22,8 @@ export const NavigationRoutes = ({
           to={route.href}
           className={({ isActive }) =>
             cn(
-              route.label === 'Take An Interview' ? 'nav-btn-orange' : 'nav-gradient-btn',
-              isActive ? 'scale-105 shadow-3d' : 'opacity-90 hover:scale-105 hover:shadow-3d'
+              "px-2 transition-colors duration-150 text-gray-700",
+              "hover:text-gray-900"
             )
           }
         >

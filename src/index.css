@@ -62,8 +62,7 @@
   }
   /* Premium 3D Glassmorphism Base Styles */
   body {
-    @apply bg-premium-gradient min-h-screen font-sans text-gray-900 dark:bg-premiumDark dark:text-white transition-colors duration-500;
-    background-attachment: fixed;
+    @apply min-h-screen font-sans text-gray-900 dark:text-white transition-colors duration-500;
   }
 
   .premium-glass {

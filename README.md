@@ -8,6 +8,52 @@ An AI-powered platform to help you practice and ace your job interviews. Generat
 - **Personalized Feedback**: Receive AI-driven feedback, ratings, and improvement tips for each answer.
 - **Progress Tracking**: View your overall ratings and feedback history.
 - **Modern UI**: Built with React, TypeScript, and Vite for a fast, responsive experience.
+- **Interview Copilot Chatbot**: Get real-time help and advice from an AI assistant powered by Google Gemini.
+
+## Setup
+
+### Prerequisites
+- Node.js (v16 or higher)
+- pnpm (recommended) or npm
+- Google Gemini API key
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd AI-Mock-Interview-
+```
+
+2. Install dependencies:
+```bash
+pnpm install
+```
+
+3. Set up your Gemini API key:
+   - Get your API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+   - Create a `.env` file in the root directory
+   - Add your API key:
+   ```
+   VITE_GEMINI_API_KEY=your_actual_api_key_here
+   ```
+
+4. Start the development server:
+```bash
+pnpm dev
+```
+
+### Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+# Gemini API Configuration
+# Get your API key from: https://makersuite.google.com/app/apikey
+VITE_GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+**Note**: Never commit your `.env` file to version control. It's already included in `.gitignore`.
 
 ---
 
