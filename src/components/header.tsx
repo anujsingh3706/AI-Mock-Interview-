@@ -1,9 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Container } from "./container";
-import { LogoContainer } from "./logo-container";
 import { NavigationRoutes } from "./navigation-routes";
 import { ProfileContainer } from "./profile-container";
-import { ToggleContainer } from "./toggle-container";
 
 const Header = () => {
   return (

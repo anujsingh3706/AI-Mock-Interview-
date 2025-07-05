@@ -20,7 +20,7 @@ export const NavigationRoutes = ({
         <NavLink
           key={route.href}
           to={route.href}
-          className={({ isActive }) =>
+          className={() =>
             cn(
               "px-2 transition-colors duration-150 text-gray-700",
               "hover:text-gray-900"
